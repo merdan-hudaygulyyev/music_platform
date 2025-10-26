@@ -185,7 +185,7 @@ const MusicPlayer = () => {
         {/* Controls */}
         <div className="max-w-[400px] w-full flex items-center flex-col gap-3">
           <div className="flex gap-4">
-            <button onClick={playPrevSong}>
+            <button className="lg:hidden" onClick={playPrevSong}>
               <SkipBack />
             </button>
             <button
@@ -194,12 +194,12 @@ const MusicPlayer = () => {
             >
               {isPlaying ? <Pause /> : <Play />}
             </button>
-            <button onClick={playNextSong}>
+            <button className="lg:hidden" onClick={playNextSong}>
               <SkipForward />
             </button>
           </div>
 
-          <div className="w-full flex justify-center items-center gap-2">
+          <div className="w-full lg:hidden flex justify-center items-center gap-2">
             <span>{formatTime(currentTime)}</span>
             <input
               onChange={handleSeek}
@@ -217,20 +217,23 @@ const MusicPlayer = () => {
         <div className="flex items-center gap-2">
           {repeatSong ? (
             <button
-              className="text-primary"
+              className="text-primary lg:hidden"
               onClick={() => setRepeatSong(false)}
             >
               <Repeat1 />
             </button>
           ) : (
-            <button onClick={() => setRepeatSong(true)}>
+            <button className="lg:hidden" onClick={() => setRepeatSong(true)}>
               <Repeat />
             </button>
           )}
-          <button onClick={() => setIsQueueModalOpen(!isQueueModalOpen)}>
+          <button
+            className="lg:hidden"
+            onClick={() => setIsQueueModalOpen(!isQueueModalOpen)}
+          >
             <ListMusic />
           </button>
-          <button onClick={toggleMute}>
+          <button className="lg:hidden" onClick={toggleMute}>
             {volume === 0 ? <VolumeOff /> : <Volume2 />}
           </button>
           <input
