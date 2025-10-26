@@ -8,7 +8,6 @@ import { Song } from "@/types/songs";
 import DeleteBtn from "./DeleteBtn";
 import { useContext } from "react";
 import { PlayerContext } from "@/layouts/Layout";
-import useUserSession from "@/custom-hooks/useUserSession";
 
 type UserSongsProps = {
   userId: string | undefined;
