@@ -75,7 +75,7 @@ const Sidebar = () => {
             </div>
           </aside>
 
-          <button className="lg:hidden fixed bottom-20 left-5 bg-background w-12 h-12 grid place-items-center text-white rounded-full z-50 cursor-pointer">
+          <button className="lg:hidden fixed bottom-23 right-5 bg-background w-12 h-12 grid place-items-center text-white rounded-full z-50 cursor-pointer">
             <PanelLeft onClick={() => setOpen(!open)} />
           </button>
         </div>
