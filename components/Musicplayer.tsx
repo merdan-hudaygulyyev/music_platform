@@ -182,10 +182,17 @@ const MusicPlayer = () => {
           </div>
         </div>
 
+        <button
+          onClick={togglePlayBtn}
+          className="bg-white text-black w-10 h-10 rounded-full grid place-items-center md:hidden"
+        >
+          {isPlaying ? <Pause /> : <Play />}
+        </button>
+
         {/* Controls */}
-        <div className="max-w-[400px] w-full flex items-center flex-col gap-3">
+        <div className="max-w-[400px] max-md:hidden w-full flex items-center flex-col gap-3">
           <div className="flex gap-4">
-            <button className="lg:hidden" onClick={playPrevSong}>
+            <button onClick={playPrevSong}>
               <SkipBack />
             </button>
             <button
@@ -194,12 +201,12 @@ const MusicPlayer = () => {
             >
               {isPlaying ? <Pause /> : <Play />}
             </button>
-            <button className="lg:hidden" onClick={playNextSong}>
+            <button onClick={playNextSong}>
               <SkipForward />
             </button>
           </div>
 
-          <div className="w-full lg:hidden flex justify-center items-center gap-2">
+          <div className="w-full max-md:hidden flex justify-center items-center gap-2">
             <span>{formatTime(currentTime)}</span>
             <input
               onChange={handleSeek}
@@ -214,26 +221,29 @@ const MusicPlayer = () => {
         </div>
 
         {/* Volume */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 max-md:hidden">
           {repeatSong ? (
             <button
-              className="text-primary lg:hidden"
+              className="text-primary max-md:hidden"
               onClick={() => setRepeatSong(false)}
             >
               <Repeat1 />
             </button>
           ) : (
-            <button className="lg:hidden" onClick={() => setRepeatSong(true)}>
+            <button
+              className="max-md:hidden"
+              onClick={() => setRepeatSong(true)}
+            >
               <Repeat />
             </button>
           )}
           <button
-            className="lg:hidden"
+            className="max-md:hidden"
             onClick={() => setIsQueueModalOpen(!isQueueModalOpen)}
           >
             <ListMusic />
           </button>
-          <button className="lg:hidden" onClick={toggleMute}>
+          <button className="max-md:hidden" onClick={toggleMute}>
             {volume === 0 ? <VolumeOff /> : <Volume2 />}
           </button>
           <input
@@ -242,7 +252,7 @@ const MusicPlayer = () => {
             type="range"
             min="0"
             max="100"
-            className="w-[100px] accent-white"
+            className="w-[100px] accent-white max-md:hidden"
           />
         </div>
       </div>
